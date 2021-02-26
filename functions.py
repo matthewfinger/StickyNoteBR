@@ -15,6 +15,16 @@ def getBackupPath(source, WS:str):
     user = pList[2]
     return os.path.join(BACKUP_PATH, WS, user)
 
+def copyBackupLogs(WS:str):
+    ws_backup = os.path.join(BACKUP_PATH, WS)
+    if not os.path.exists(ws_backup):
+        os.system("MKDIR {}".format(ws_backup))
+    if not os.path.exists(os.path.join(ws_backup, logger.LOGDIRNAME)):
+        os.system("MKDIR {}".format(os.path.join(ws_backup, logger.LOGDIRNAME)))
+    if os.path.exists(logger.LOGPATH):
+        os.system("COPY /Y {}\\backup.log {}\\{}\\backup.log".format(logger.LOGPATH, ws_backup, logger.LOGDIRNAME))
+        os.system("COPY /Y {}\\restore.log {}\\{}\\restore.log".format(logger.LOGPATH, ws_backup, logger.LOGDIRNAME))
+
 
 #converts a pathlike object, TREATED AS A STRING, to it's list compontents
 def listFromPath(path):

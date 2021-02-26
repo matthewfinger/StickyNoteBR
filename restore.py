@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, datetime
 
 import functions, logger, tests
 
@@ -31,7 +31,13 @@ def win10Restore(WS:str):
                 logger.ptLogR("!Could not find backup for user {}! (expected to find in {})".format(user, backup_path))
 
     tests.restoreCheck(WS)
+    #functions.copyBackupLogs(WS)
 
+
+ts = datetime.datetime.now().ctime()
+logger.logR('Restore attempt started on {}'.format(ts))
+
+print('\n')
 
 started = False
 args = sys.argv

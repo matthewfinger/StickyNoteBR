@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, datetime
 
 import functions, logger, tests
 
@@ -23,8 +23,14 @@ def win7Backup(WS:str):
             else:
                 logger.printThenLog("!'{}' has a StickyNotes directory, but no StickyNotes.snt!".format(user), 'backup')
 
+    print('\n')
     tests.backupCheck(WS)
+    #functions.copyBackupLogs(WS)
 
+ts = datetime.datetime.now().ctime()
+logger.logB('Backup attempt started on {}'.format(ts))
+
+print('\n')
 
 started = False
 args = sys.argv

@@ -1,7 +1,8 @@
 import os
 from datetime import datetime
 
-LOGPATH = os.path.join(os.getcwd(), 'StickyNoteLogs')
+LOGDIRNAME = 'StickyNoteLogs'
+LOGPATH = os.path.join(os.getcwd(), LOGDIRNAME)
 BACKUPLOG = os.path.join(LOGPATH, 'backup.log')
 RESTORELOG = os.path.join(LOGPATH, 'restore.log')
 
