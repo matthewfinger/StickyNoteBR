@@ -49,6 +49,12 @@ def getWin10StickyDir(user):
         os.system("mkdir {}".format(newpath))
     return newpath
 
+def getWin10StickyDirsFromUsers(users):
+    out = []
+    for user in users:
+        out.append(getWin10StickyDir(user))
+    return out
+
 
 def copy(source, destination):
     syscall = "XCOPY {} {} /E /C /H /R /K /O /Y".format(source, destination)
