@@ -18,7 +18,7 @@ def win7Backup(WS:str):
                     os.system("mkdir {}".format(sNoteDestination))
 
                 functions.copy(sNoteSource, sNoteDestination)
-                logger.printThenLog("'{}' > attempting to backup".format(user), 'backup')
+                logger.printThenLog("'{}' > backing up".format(user), 'backup')
 
             else:
                 logger.printThenLog("!'{}' has a StickyNotes directory, but no StickyNotes.snt!".format(user), 'backup')
@@ -31,10 +31,10 @@ args = sys.argv
 for i in range(len(args)):
     if args[i] == '-w' and len(args) > i + 1:
         WORK_STATION = sys.argv[i + 1]
-        logger.printThenLog("Attempting to create backup for workstation: '{}'".format(WORK_STATION), 'backup')
+        logger.printThenLog("Attempting to backup sticky notes for workstation: '{}'".format(WORK_STATION), 'backup')
         win7Backup(WORK_STATION)
         started = True
         break
 
 if not started:
-    logger.printThenLog("Did not find a workstation passed! Run the command as: 'backup -w <workstation id>'", 'backup')
+    logger.printThenLog("Did not find a workstation passed! Run the command as: 'backup.exe -w <workstation id>'", 'backup')

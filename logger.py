@@ -49,11 +49,11 @@ def ptLogB(message):
     printThenLog(message, 'backup')
 
 def ptLogR(message):
-    printThenLog(mesage, 'restore')
+    printThenLog(message, 'restore')
 
 def logB(message):
     log(message, 'backup')
-    
+
 def logR(message):
     log(message, 'restore')
 

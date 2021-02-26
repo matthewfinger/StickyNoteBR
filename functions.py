@@ -55,6 +55,17 @@ def getWin10StickyDirsFromUsers(users):
         out.append(getWin10StickyDir(user))
     return out
 
+#list of user dirs in backup directory
+def getBackupPaths(WS:str):
+    out = []
+    basepath = os.path.join(BACKUP_PATH, WS)
+    if os.path.exists(basepath):
+        for user in os.listdir(basepath):
+            newpath = os.path.join(basepath, user)
+            if os.path.isdir(newpath):
+                out.append(newpath)
+    return out
+
 
 def copy(source, destination):
     syscall = "XCOPY {} {} /E /C /H /R /K /O /Y".format(source, destination)
@@ -62,3 +73,12 @@ def copy(source, destination):
         os.system(syscall)
     except Exception:
         logger.printThenLog("Something went wrong copying {} to {}".format(source, destination))
+
+def contents(filepath):
+    if os.path.exists(filepath) and os.path.isfile(filepath):
+        file = open(filepath, 'r')
+        contents = file.read()
+        file.close()
+        return contents
+    else:
+        return ''
