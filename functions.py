@@ -7,7 +7,7 @@ WIN10_STICKYNOTE_PATTERN = os.path.join(*['AppData', 'Local', 'Packages', 'Micro
 BACKUP_PATTERN = None
 
 USER_FOLDER_PATTERN = os.path.join(*['C:\\Users'])
-BACKUP_PATH = os.path.join("Q:\\0_SouthernLakes_Kronos\\Back%20Up\\Matt_F", "StickyNotesBackups") #bug here
+BACKUP_PATH = os.path.join("Q:\\0_SouthernLakes_Kronos\\Back Up\\Matt_F", "StickyNotesBackups") #bug here
 
 def getBackupPath(source, WS:str):
     pList = listFromPath(source)
